@@ -35,7 +35,7 @@ contract GolemWrapper is ERC20Base(0), GolemWrapperAPI {
         return broker;
     }
     function notifyDeposit(address client, uint amount) {
-        if( _broker2owner[msg.sender] != client ) {
+        if( _broker2owner[msg.sender] != client && client != address(0)) {
             throw;
         }
         var owner = _broker2owner[msg.sender];
