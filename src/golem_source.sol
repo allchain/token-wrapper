@@ -1,4 +1,5 @@
-// As copied from etherscan.io  11/13/16
+// Copied from https://etherscan.io/address/0xa74476443119A942dE498590Fe1f2454d7D4aC0d
+// on 11/13/16
 
 pragma solidity ^0.4.4;
 

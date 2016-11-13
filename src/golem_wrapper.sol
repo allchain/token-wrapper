@@ -43,13 +43,14 @@ contract GolemWrapper is ERC20Base(0), GolemWrapperAPI {
             throw;
         }
         _balances[client] += amount;
+        _supply += amount;
     }
     function withdraw(uint amount) {
-        if( _balances[this] < amount ) {
+        if( _balances[msg.sender] < amount ) {
             throw;
         }
-    }
-    function migrate() {
-        _unwrapped.migrate(_unwrapped.balanceOf(this));
+        _balances[msg.sender] -= amount;
+        _supply -= amount;
+        _unwrapped.transfer(msg.sender, amount);
     }
 }

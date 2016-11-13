@@ -13,7 +13,7 @@ contract GolemDepositBrokerAPI {
 }
 
 contract GolemWrapperAPI is ERC20 {
-    function withdraw() returns (uint amount_withdrawn);
+    function withdraw(uint amount);
 
     // NO deposit, must be done via broker! Sorry!
     function createBroker() returns (GolemDepositBrokerAPI);
