@@ -6,7 +6,7 @@ This is a wrapper contract which lets you deposit GNT tokens into an ERC20-compa
 
 An interface to this wrapper will be available on the deposit/withdraw tab on [mkr.market](https://mkr.market), next to the ETH token wrapper. Any other dapp can point to the same token wrapper contract, and could offer a similar UI.
 
-*A note on migration*: GNT is designed with arguably the worst upgrade strategy possible, which does not allow any dependent contracts to follow upgrades without manual intervention. Most token manipulation contracts are valuable *because* they have no "admin" backdoors. Because of this, we have opted to NOT include an "upgrade backdoor" for this wrapper, hoping that the Golem team will take the opportunity to create a future-proof token contract when they upgrade their token, which should also make a wrapper unnecessary if it implements ERC20. You will be able to `withdraw` and then follow the normal migration procedure at that time.
+*A note on migration*: GNT uses an upgrade strategy which does not allow any dependent contracts to follow upgrades without manual intervention. Most token manipulation contracts are valuable *because* they have no "admin" backdoors. Because of this, we have opted to NOT include an "upgrade backdoor" for this wrapper, hoping that the Golem team will take the opportunity to create a future-proof token contract when they upgrade their token, which should also make a wrapper unnecessary if it implements ERC20. You will be able to `withdraw` and then follow the normal migration procedure at that time.
 
 Usage:
 ---
