@@ -1,3 +1,4 @@
+name: token-wrapper
 version: 0.0.1-dev
 tags: []
 layout:
@@ -6,4 +7,14 @@ layout:
   packages_directory: .dapple/packages/
 dependencies: {}
 ignore: []
-name: golem-wrapper
+environments:
+  develop:
+    objects: {}
+    type: internal
+  testfork:
+    objects:
+      gnt:
+        type: GolemNetworkToken
+        value: '0xa74476443119A942dE498590Fe1f2454d7D4aC0d'
+    type: internal
+dapple_version: 0.8.35
