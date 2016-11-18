@@ -6,15 +6,25 @@ layout:
   build_dir: build
   packages_directory: .dapple/packages/
 dependencies: {}
-ignore: []
+ignore:
+    - "gnt_test.t.sol"
 environments:
   develop:
     objects: {}
     type: internal
+  festfork:
+    objects:
+      gnt:
+        type: GolemNetworkToken
+        value: '0xa74476443119A942dE498590Fe1f2454d7D4aC0d'
+    type: UNKNOWN
   testfork:
     objects:
       gnt:
         type: GolemNetworkToken
         value: '0xa74476443119A942dE498590Fe1f2454d7D4aC0d'
+    type: internal
+  localtest:
+    objects: {}
     type: internal
 dapple_version: 0.8.35
