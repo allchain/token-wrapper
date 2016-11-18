@@ -3,18 +3,18 @@ pragma solidity ^0.4.4;
 import 'dapple/test.sol';
 
 import "erc20/base.sol";
-import "./golem_wrapper.sol";
+import "./wrapper.sol";
 
-contract GolemWrapperTest is Test {
-    GolemAPI G;
-    GolemWrapperAPI W;
+contract WrapperTest is Test {
+    ReducedToken G; // G for GNT
+    TokenWrapperInterface W;
     // TODO Override to use target from env/chain
-    function getGolemToken() returns (GolemAPI) {
-        return GolemAPI(address(new ERC20Base(100)));
+    function getToken() returns (ReducedToken) {
+        return ReducedToken(address(new ERC20Base(100)));
     }
     function setUp() {
-        G = getGolemToken();
-        W = new GolemWrapper(G);
+        G = getToken();
+        W = new TokenWrapper(G);
     }
     function testSetup() {
         assertTrue( G.balanceOf(this) == 100 );
@@ -31,7 +31,5 @@ contract GolemWrapperTest is Test {
         W.withdraw(45);
         assertEq(5, W.balanceOf(this));
         assertEq(45, G.balanceOf(this));
-    }
-    function testFailWrongUser() {
     }
 }  
