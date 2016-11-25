@@ -1,0 +1,10 @@
+*.sw*
+.DS_Store
+.publish/
+build/
+dist/
+node_modules/
+npm-debug.log
+nohup.out
+.dapple/chain_db
+**/chain_db/
