@@ -18,8 +18,12 @@ contract DepositBroker is DepositBrokerInterface {
     }
 }
 
+contract TokenWrapperEvents {
+    event LogBroker(address indexed broker);
+}
+
 // Deposits only accepted via broker!
-contract TokenWrapper is ERC20Base(0), TokenWrapperInterface {
+contract TokenWrapper is ERC20Base(0), TokenWrapperInterface, TokenWrapperEvents {
     ReducedToken _unwrapped;
     mapping(address=>address) _broker2owner;
     function TokenWrapper( ReducedToken unwrapped) {
@@ -28,6 +32,7 @@ contract TokenWrapper is ERC20Base(0), TokenWrapperInterface {
     function createBroker() returns (DepositBrokerInterface) {
         var broker = new DepositBroker(_unwrapped);
         _broker2owner[broker] = msg.sender;
+        LogBroker(broker);
         return broker;
     }
     function notifyDeposit(uint amount) {
