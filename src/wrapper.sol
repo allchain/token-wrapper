@@ -26,13 +26,22 @@ contract TokenWrapperEvents {
 contract TokenWrapper is ERC20Base(0), TokenWrapperInterface, TokenWrapperEvents {
     ReducedToken _unwrapped;
     mapping(address=>address) _broker2owner;
+    mapping(address=>address) _owner2broker;
     function TokenWrapper( ReducedToken unwrapped) {
         _unwrapped = unwrapped;
     }
     function createBroker() returns (DepositBrokerInterface) {
-        var broker = new DepositBroker(_unwrapped);
-        _broker2owner[broker] = msg.sender;
-        LogBroker(broker);
+        DepositBroker broker;
+        if( _owner2broker[msg.sender] == address(0) ) {
+            broker = new DepositBroker(_unwrapped);
+            _broker2owner[broker] = msg.sender;
+            _owner2broker[msg.sender] = broker;
+            LogBroker(broker);
+        }
+        else {
+            broker = DepositBroker(_owner2broker[msg.sender]);
+        }
+        
         return broker;
     }
     function notifyDeposit(uint amount) {
@@ -50,5 +59,8 @@ contract TokenWrapper is ERC20Base(0), TokenWrapperInterface, TokenWrapperEvents
         _balances[msg.sender] -= amount;
         _supply -= amount;
         _unwrapped.transfer(msg.sender, amount);
+    }
+    function getBroker(address owner) returns (DepositBrokerInterface) {
+        return DepositBroker(_owner2broker[msg.sender]);
     }
 }

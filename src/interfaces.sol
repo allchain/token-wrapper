@@ -20,6 +20,8 @@ contract TokenWrapperInterface is ERC20 {
 
     // broker contracts only - transfer to a personal broker then use `clear`
     function notifyDeposit(uint amount);
+
+    function getBroker(address owner) returns (DepositBrokerInterface);
 }
 
 

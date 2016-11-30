@@ -32,4 +32,13 @@ contract WrapperTest is Test {
         assertEq(5, W.balanceOf(this));
         assertEq(45, G.balanceOf(this));
     }
+    function testSingletonBroker() {
+        var broker = W.createBroker();
+        var broker2 = W.createBroker();
+        assertEq(broker2, broker);
+    }
+    function testUserHasBroker() {
+        var broker = W.createBroker();
+        assertEq(W.getBroker(this), broker);
+    }
 }  
