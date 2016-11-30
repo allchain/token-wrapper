@@ -37,10 +37,10 @@ environments:
     objects:
       gnt:
         type: GolemNetworkToken
-        value: '0x237470c3f62de047c4b6008fc94024b980b041e5'
+        value: '0x7fb3c4ff78bd0305a6ec436eda79303f981c5938'
       GNT_wrapper:
-        value: '0x71ddcf50dce273e57875f45aa80aa6a03d291eaa'
+        value: '0xa5d92f318247c3b43241436dbb55ec4be600dc42'
         type: >-
-          TokenWrapper[a816323f5ec82bd104bea496e2ce211fc25797b45047bf763f5af7ac80dff35f]
+          TokenWrapper[74e33d3d8845c25656659612e0989064a5ac9732b29bdd6f942dc662407827bd]
     type: ropsten
 dapple_version: 0.8.36
