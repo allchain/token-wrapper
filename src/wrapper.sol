@@ -32,7 +32,7 @@ contract TokenWrapper is ERC20Base(0), TokenWrapperInterface, TokenWrapperEvents
     }
     function createBroker() returns (DepositBrokerInterface) {
         DepositBroker broker;
-        if( _owner2broker[msg.sender]  == address(0) ) {
+        if( _owner2broker[msg.sender] == address(0) ) {
             broker = new DepositBroker(_unwrapped);
             _broker2owner[broker] = msg.sender;
             _owner2broker[msg.sender] = broker;
