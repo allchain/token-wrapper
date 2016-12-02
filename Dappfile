@@ -43,4 +43,10 @@ environments:
         type: >-
           TokenWrapper[74e33d3d8845c25656659612e0989064a5ac9732b29bdd6f942dc662407827bd]
     type: ropsten
+  IntegTests:
+    objects:
+      gnt:
+        type: GolemNetworkToken
+        value: '0xa74476443119A942dE498590Fe1f2454d7D4aC0d'
+    type: internal
 dapple_version: 0.8.36
