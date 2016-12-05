@@ -49,4 +49,14 @@ environments:
         type: GolemNetworkToken
         value: '0xa74476443119A942dE498590Fe1f2454d7D4aC0d'
     type: internal
+  live:
+    objects:
+      gnt:
+        type: GolemNetworkToken
+        value: '0xa74476443119A942dE498590Fe1f2454d7D4aC0d'
+      GNT_wrapper:
+        value: '0x01afc37f4f85babc47c0e2d0eababc7fb49793c8'
+        type: >-
+          TokenWrapper[b10b907625d773ba71be6676c46c412e3736d4bb27ec4f9f0f45a52d7fa3685c]
+    type: ETH
 dapple_version: 0.8.36
