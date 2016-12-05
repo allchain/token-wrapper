@@ -7,6 +7,6 @@ import './interfaces.sol';
 contract DeployGNTWrapper is Script {
     function DeployGNTWrapper() {
         var wrapper = new TokenWrapper(ReducedToken(address(env.gnt)));
-        export("GNT_wrapper", wrapper);
+        exportObject("GNT_wrapper", wrapper);
     }
 }

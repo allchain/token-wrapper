@@ -13,7 +13,7 @@ contract SetupTokenBalances is Script {
     // Set up an Actor
     var actor = new Tester();
     actor._target(env.gnt);
-    export("actor", actor);
+    exportObject("actor", actor);
 
     txoff();
     // this should be treated as a static call
