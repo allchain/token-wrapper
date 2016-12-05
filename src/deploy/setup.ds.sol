@@ -5,7 +5,7 @@ pragma solidity ^0.4.4;
 
 import "dapple/script.sol";
 import "dapple/test.sol";
-import "./golem_source.sol";
+import "../golem_source.sol";
 
 contract SetupTokenBalances is Script {
   function SetupTokenBalances() {
