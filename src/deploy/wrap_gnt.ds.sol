@@ -1,6 +1,5 @@
 pragma solidity ^0.4.4;
 
-import 'dapple/env.sol';
 import 'dapple/script.sol';
 import '../interfaces.sol';
 import '../wrapper.sol';

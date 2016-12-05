@@ -1,7 +1,6 @@
 pragma solidity ^0.4.4;
 
 import 'erc20/erc20.sol';
-import 'dapple/env.sol';
 import 'dapple/script.sol';
 import '../interfaces.sol';
 import '../wrapper.sol';
