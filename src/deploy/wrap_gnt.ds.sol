@@ -1,8 +1,8 @@
 pragma solidity ^0.4.4;
 
 import 'dapple/script.sol';
-import 'dapple/env.sol';
-import './interfaces.sol';
+import '../interfaces.sol';
+import '../wrapper.sol';
 
 contract DeployGNTWrapper is Script {
     function DeployGNTWrapper() {
