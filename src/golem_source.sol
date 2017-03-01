@@ -232,7 +232,7 @@ contract GNTAllocation {
 
     uint256 tokensCreated = 0;
 
-    function GNTAllocation(address _golemFactory) internal {
+    function GNTAllocation(address _golemFactory) {
         gnt = GolemNetworkToken(msg.sender);
         unlockedAt = now + 6 * 30 days;
 
