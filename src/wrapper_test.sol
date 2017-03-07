@@ -2,7 +2,7 @@ pragma solidity ^0.4.4;
 
 import 'dapple/test.sol';
 
-import "erc20/base.sol";
+import "ds-token/base.sol";
 import "./wrapper.sol";
 
 contract WrapperTest is Test {
@@ -10,7 +10,7 @@ contract WrapperTest is Test {
     TokenWrapperInterface W;
     // TODO Override to use target from env/chain
     function getToken() returns (ReducedToken) {
-        return ReducedToken(address(new ERC20Base(100)));
+        return ReducedToken(address(new DSTokenBase(100)));
     }
     function setUp() {
         G = getToken();
