@@ -1,11 +1,11 @@
 pragma solidity ^0.4.4;
 
-import 'dapple/test.sol';
+import 'ds-test/test.sol';
 
 import "ds-token/base.sol";
 import "./wrapper.sol";
 
-contract WrapperTest is Test {
+contract WrapperTest is DSTest {
     ReducedToken G; // G for GNT
     TokenWrapperInterface W;
     // TODO Override to use target from env/chain
@@ -17,7 +17,7 @@ contract WrapperTest is Test {
         W = new TokenWrapper(G);
     }
     function testSetup() {
-        assertTrue( G.balanceOf(this) == 100 );
+        assert(G.balanceOf(this) == 100);
     }
     function testTheBasics() {
         var broker = W.createBroker();
