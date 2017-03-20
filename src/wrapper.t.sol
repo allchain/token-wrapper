@@ -1,8 +1,6 @@
-pragma solidity ^0.4.4;
+pragma solidity ^0.4.8;
 
 import 'ds-test/test.sol';
-
-import "ds-token/base.sol";
 import "./wrapper.sol";
 
 contract WrapperTest is DSTest {
