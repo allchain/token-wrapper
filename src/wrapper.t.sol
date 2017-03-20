@@ -1,23 +1,21 @@
-pragma solidity ^0.4.4;
+pragma solidity ^0.4.8;
 
-import 'dapple/test.sol';
-
-import "erc20/base.sol";
+import 'ds-test/test.sol';
 import "./wrapper.sol";
 
-contract WrapperTest is Test {
+contract WrapperTest is DSTest {
     ReducedToken G; // G for GNT
     TokenWrapperInterface W;
     // TODO Override to use target from env/chain
     function getToken() returns (ReducedToken) {
-        return ReducedToken(address(new ERC20Base(100)));
+        return ReducedToken(address(new DSTokenBase(100)));
     }
     function setUp() {
         G = getToken();
         W = new TokenWrapper(G);
     }
     function testSetup() {
-        assertTrue( G.balanceOf(this) == 100 );
+        assert(G.balanceOf(this) == 100);
     }
     function testTheBasics() {
         var broker = W.createBroker();

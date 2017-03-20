@@ -1,7 +1,7 @@
 // Copied from https://etherscan.io/address/0xa74476443119A942dE498590Fe1f2454d7D4aC0d
 // on 11/13/16
 
-pragma solidity ^0.4.4;
+pragma solidity ^0.4.8;
 
 
 /// @title Golem Network Token (GNT) - crowdfunding code for Golem Project
@@ -13,8 +13,8 @@ contract GolemNetworkToken {
     uint256 public constant tokenCreationRate = 1000;
 
     // The funding cap in weis.
-    uint256 public constant tokenCreationCap = 820000 ether * tokenCreationRate;
-    uint256 public constant tokenCreationMin = 150000 ether * tokenCreationRate;
+    uint256 public tokenCreationCap = 820000 ether * tokenCreationRate;
+    uint256 public tokenCreationMin = 150000 ether * tokenCreationRate;
 
     uint256 public fundingStartBlock;
     uint256 public fundingEndBlock;

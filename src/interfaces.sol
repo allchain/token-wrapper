@@ -1,6 +1,6 @@
-pragma solidity ^0.4.4;
+pragma solidity ^0.4.8;
 
-import 'erc20/erc20.sol';
+import 'ds-token/base.sol';
 
 contract ReducedToken {
     function balanceOf(address _owner) returns (uint256);

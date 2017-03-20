@@ -1,3 +1,6 @@
-[submodule ".dapple/packages/nexusdev_erc20"]
-	path = .dapple/packages/erc20
-	url = https://github.com/nexusdev/erc20.git
+[submodule "lib/ds-token"]
+	path = lib/ds-token
+	url = https://github.com/dapphub/ds-token
+[submodule "lib/ds-test"]
+	path = lib/ds-test
+	url = https://github.com/dapphub/ds-test

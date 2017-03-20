@@ -1,6 +1,6 @@
-pragma solidity ^0.4.4;
+pragma solidity ^0.4.8;
 
-import 'erc20/base.sol';
+import 'ds-token/base.sol';
 
 import './interfaces.sol';
 
@@ -23,7 +23,7 @@ contract TokenWrapperEvents {
 }
 
 // Deposits only accepted via broker!
-contract TokenWrapper is ERC20Base(0), TokenWrapperInterface, TokenWrapperEvents {
+contract TokenWrapper is DSTokenBase(0), TokenWrapperInterface, TokenWrapperEvents {
     ReducedToken _unwrapped;
     mapping(address=>address) _broker2owner;
     mapping(address=>address) _owner2broker;
