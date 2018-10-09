@@ -49,13 +49,13 @@ contract TokenWrapper is DSTokenBase(0), TokenWrapperInterface, TokenWrapperEven
     function notifyDeposit(uint amount) public {
         address owner = _broker2owner[msg.sender];
         require(owner > address(0));
-        _balances[owner] += amount;
-        _supply += amount;
+        _balances[owner] = add(_balances[owner], amount);
+        _supply = add(_supply, amount);
     }
     function withdraw(uint amount) public {
         require(_balances[msg.sender] >= amount);
-        _balances[msg.sender] -= amount;
-        _supply -= amount;
+        _balances[msg.sender] = sub(_balances[msg.sender], amount);
+        _supply = sub(_supply, amount);
         _unwrapped.transfer(msg.sender, amount);
     }
     function getBroker() public view returns (DepositBrokerInterface) {
