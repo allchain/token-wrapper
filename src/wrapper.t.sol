@@ -1,24 +1,24 @@
-pragma solidity ^0.4.8;
+pragma solidity ^0.4.24;
 
-import 'ds-test/test.sol';
+import "ds-test/test.sol";
 import "./wrapper.sol";
 
 contract WrapperTest is DSTest {
     ReducedToken G; // G for GNT
-    TokenWrapperInterface W;
+    TokenWrapper W;
     // TODO Override to use target from env/chain
-    function getToken() returns (ReducedToken) {
+    function getToken() public returns (ReducedToken) {
         return ReducedToken(address(new DSTokenBase(100)));
     }
-    function setUp() {
+    function setUp() public {
         G = getToken();
         W = new TokenWrapper(G);
     }
-    function testSetup() {
+    function testSetup() public {
         assert(G.balanceOf(this) == 100);
     }
-    function testTheBasics() {
-        var broker = W.createBroker();
+    function testTheBasics() public {
+        DepositBrokerInterface broker = W.createBroker();
         G.transfer(broker, 100);
         broker.clear();
         assertEq(100, W.balanceOf(this));
@@ -30,13 +30,13 @@ contract WrapperTest is DSTest {
         assertEq(5, W.balanceOf(this));
         assertEq(45, G.balanceOf(this));
     }
-    function testSingletonBroker() {
-        var broker = W.createBroker();
-        var broker2 = W.createBroker();
+    function testSingletonBroker() public {
+        DepositBrokerInterface broker = W.createBroker();
+        DepositBrokerInterface broker2 = W.createBroker();
         assertEq(broker2, broker);
     }
-    function testUserHasBroker() {
-        var broker = W.createBroker();
-        assertEq(W.getBroker(this), broker);
+    function testUserHasBroker() public {
+        DepositBrokerInterface broker = W.createBroker();
+        assertEq(W.getBroker(), broker);
     }
 }  
