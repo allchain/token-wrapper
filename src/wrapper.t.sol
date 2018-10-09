@@ -14,7 +14,7 @@ contract WrapperTest is DSTest {
         G = getToken();
         W = new TokenWrapper(G);
     }
-    function testSetup() public {
+    function testSetup() public view {
         assert(G.balanceOf(this) == 100);
     }
     function testTheBasics() public {
